@@ -8,7 +8,7 @@ function doEval(self, __pseudoworker_script) {
   }).call(global);
 }
 
-function PseudoWorker(path) {
+function WindowWorker(path) {
   var messageListeners = [];
   var errorListeners = [];
   var workerMessageListeners = [];
@@ -171,4 +171,4 @@ function PseudoWorker(path) {
   return api;
 }
 
-module.exports = PseudoWorker;
+module.exports = WindowWorker;

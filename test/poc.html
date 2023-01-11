@@ -9,9 +9,7 @@
 
     
     <script>
-      window.addEventListener("message", (event) => {
-      console.log(event);
-      });
+
     main();
 
       async function main(){
@@ -20,9 +18,24 @@
       var crf = document.createElement('iframe');
         crf.sandbox='allow-scripts';
         crf.setAttribute('sandbox','allow-scripts');
-      crf.src = 'https://windowworker.github.io/worker/worker.html?'+encodeURIComponent(wjs);
+      crf.src = 'https://windowworker.github.io/worker/worker.html?'+encodeURIComponent(window.location.origin);
       document.body.appendChild(crf);
+        
+        
+        
+      window.addEventListener("message", (event) => {
+          if (event.origin !== "https://windowworker.github.io")
+       return;
+      if(event.data==='ready'){
+      
+        crf.contentWindow.postMessage(encodeURIComponent(wjs),'https://windowworker.github.io');
+      
       }
+      });
+      }
+      
+      
+      
     </script>
     
 

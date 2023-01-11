@@ -1,12 +1,12 @@
 {
-  "name": "pseudo-worker",
-  "version": "1.3.0",
+  "name": "window-worker",
+  "version": "1.0.0",
   "description": "Tiny and mostly spec-compliant WebWorker polyfill",
   "main": "index.js",
-  "repository": "https://github.com/nolanlawson/pseudo-worker.git",
+  "repository": "https://github.com/nolanlawson/window-worker.git",
   "scripts": {
     "prepublish": "npm run build",
-    "build": "rimraf dist && mkdirp dist && browserify -s PseudoWorker -p bundle-collapser/plugin . > dist/pseudo-worker.js && browserify -s PseudoWorker -p bundle-collapser/plugin polyfill.js > dist/pseudo-worker.polyfill.js && uglifyjs -mc < dist/pseudo-worker.js > dist/pseudo-worker.min.js && uglifyjs -mc < dist/pseudo-worker.polyfill.js > dist/pseudo-worker.polyfill.min.js",
+    "build": "rimraf dist && mkdirp dist && browserify -s WindowWorker -p bundle-collapser/plugin . > dist/window-worker.js && browserify -s WindowWorker -p bundle-collapser/plugin polyfill.js > dist/window-worker.polyfill.js && uglifyjs -mc < dist/window-worker.js > dist/window-worker.min.js && uglifyjs -mc < dist/window-worker.polyfill.js > dist/window-worker.polyfill.min.js",
     "test": "mocha ./test/test.js",
     "test-browser": "zuul ./test/test.js",
     "test-local": "zuul ./test/test.js --local 9000 --no-coverage",
@@ -20,7 +20,7 @@
     "dist"
   ],
   "keywords": [],
-  "author": "Nolan Lawson <nolan@nolanlawson.com>",
+  "author": "Patrick Ring <patrick.ring.motive@gmail.com>",
   "license": "Apache-2.0",
   "devDependencies": {
     "assert": "^1.3.0",

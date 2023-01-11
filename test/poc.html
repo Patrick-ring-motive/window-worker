@@ -16,8 +16,8 @@
       let wj = await fetch('./winworker.js');
       let wjs=await wj.text();
       var crf = document.createElement('iframe');
-        crf.sandbox='allow-scripts';
-        crf.setAttribute('sandbox','allow-scripts');
+      //  crf.sandbox='allow-scripts';
+      //  crf.setAttribute('sandbox','allow-scripts');
       crf.src = 'https://windowworker.github.io/worker/worker.html?'+encodeURIComponent(window.location.origin);
       document.body.appendChild(crf);
         

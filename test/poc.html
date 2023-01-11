@@ -24,9 +24,10 @@
         
         
       window.addEventListener("message", (event) => {
+        console.log(event.data);
           if (event.origin !== "https://windowworker.github.io")
        return;
-        console.log(event.data);
+        
       if(event.data==='ready'){
       
         crf.contentWindow.postMessage(encodeURIComponent(wjs),'https://windowworker.github.io');

@@ -3,6 +3,11 @@ class WindowWorker {
     this.iframe = buildWorker(workerURL);
   }
   
+
+}
+
+
+  
     async function buildWorker(workerURL){
       let wj = await fetch(workerURL);
       let wjs=await wj.text();
@@ -26,13 +31,7 @@ class WindowWorker {
       });
     return crf;
    }
-}
-
-
-  
-
-
 
 
       
-//export { WindowWorker };
+

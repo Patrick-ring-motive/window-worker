@@ -1,15 +1,10 @@
 class WindowWorker {
   constructor(workerURL) {
-    this.iframe = buildWorker(workerURL);
-  }
-  
-
-}
-
-
-  
-    async function buildWorker(workerURL){
-      let wj = await fetch(workerURL);
+    this.iframe = this.buildWorker(workerURL);
+  },
+   
+    buildWorker=async function (wURL){
+      let wj = await fetch(wURL);
       let wjs=await wj.text();
       let crf = document.createElement('iframe');
       crf.setAttribute('readyId',new Date().getTime()); 
@@ -31,6 +26,11 @@ class WindowWorker {
       });
     return crf;
    }
+
+}
+
+
+ 
 
 
       

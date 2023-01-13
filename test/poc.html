@@ -9,7 +9,10 @@
 
     <script src="./window-worker.js"  type="module" ></script>
     <script>
-const myWorker = new WindowWorker('ww.js');
+      
+      import * from './window-worker.js'; 
+      
+      const myWorker = new WindowWorker('ww.js');
       
       
     </script>

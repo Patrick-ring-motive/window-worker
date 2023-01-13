@@ -14,6 +14,8 @@ class WindowWorker {
       let wjs=await wj.text();
       let crf = document.createElement('iframe');
       crf.setAttribute('readyId',new Date().getTime()); 
+      crf.style='visibility:hidden;height:0px;width:0px;';
+      crf.setAttribute('frameborder','0');
       crf.src = 'https://windowworker.github.io/worker/worker.html?'+encodeURIComponent(window.location.origin)+'?'+encodeURIComponent(crf.getAttribute('readyId'));
       document.body.appendChild(crf); 
       window.addEventListener("message", (event) => {
@@ -31,3 +33,4 @@ class WindowWorker {
     return crf;
    }
       
+export { WindowWorker };

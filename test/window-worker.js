@@ -1,15 +1,9 @@
 class WindowWorker {
   constructor(workerURL) {
-    this.iframe = buildWorker(workerURL);
+    this.iframe = this.buildWorker(workerURL);
   }
-}
-
-
   
-
-
-
-  async function buildWorker(workerURL){
+    async function buildWorker(workerURL){
       let wj = await fetch(workerURL);
       let wjs=await wj.text();
       let crf = document.createElement('iframe');
@@ -32,5 +26,13 @@ class WindowWorker {
       });
     return crf;
    }
+}
+
+
+  
+
+
+
+
       
 export { WindowWorker };

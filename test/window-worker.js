@@ -1,5 +1,5 @@
 class WindowWorker {
-  constructor() {
+  constructor(workerURL) {
     this.iframe = buildWorker(workerURL);
   }
 }

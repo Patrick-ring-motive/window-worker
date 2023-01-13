@@ -15,10 +15,9 @@
       async function main(){
       let wj = await fetch('./winworker.js');
       let wjs=await wj.text();
-      var crf = document.createElement('iframe');
-      //  crf.sandbox='allow-scripts';
-      //  crf.setAttribute('sandbox','allow-scripts');
-      crf.src = 'https://windowworker.github.io/worker/worker.html?'+encodeURIComponent(window.location.origin);
+      let crf = document.createElement('iframe');
+      crf.setAttribute('readyId',new Date().getTime()); 
+      crf.src = 'https://windowworker.github.io/worker/worker.html?'+encodeURIComponent(window.location.origin)+'?'+encodeURIComponent(crf.getAttribute('readyId'));
       document.body.appendChild(crf);
         
         
@@ -27,8 +26,8 @@
         console.log(event);
           if (event.origin !== "https://windowworker.github.io")
        return;
-        
-      if(event.data==='ready'){
+        let rid = 'ready' + crf.getAttribute('readyId');
+      if(event.data===rid){
       
         crf.contentWindow.postMessage(encodeURIComponent(wjs),'https://windowworker.github.io');
       

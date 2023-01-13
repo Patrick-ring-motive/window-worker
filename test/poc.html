@@ -7,35 +7,9 @@
   </head>
   <body>
 
-    
+    <script src="./window-worker.js"></script>
     <script>
-
-    main();
-
-      async function main(){
-      let wj = await fetch('./winworker.js');
-      let wjs=await wj.text();
-      let crf = document.createElement('iframe');
-      crf.setAttribute('readyId',new Date().getTime()); 
-      crf.src = 'https://windowworker.github.io/worker/worker.html?'+encodeURIComponent(window.location.origin)+'?'+encodeURIComponent(crf.getAttribute('readyId'));
-      document.body.appendChild(crf);
-        
-        
-        
-      window.addEventListener("message", (event) => {
-        console.log(event);
-          if (event.origin !== "https://windowworker.github.io")
-       return;
-        let rid = 'ready' + crf.getAttribute('readyId');
-      if(event.data===rid){
-      let data={};
-        data.script=encodeURIComponent(wjs);
-        crf.contentWindow.postMessage(data,'https://windowworker.github.io');
-      
-      }
-      });
-      }
-      
+const myWorker = new WindowWorker('ww.js');
       
       
     </script>

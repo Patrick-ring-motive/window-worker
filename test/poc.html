@@ -28,8 +28,9 @@
        return;
         let rid = 'ready' + crf.getAttribute('readyId');
       if(event.data===rid){
-      
-        crf.contentWindow.postMessage(encodeURIComponent(wjs),'https://windowworker.github.io');
+      let data={};
+        data.script=encodeURIComponent(wjs);
+        crf.contentWindow.postMessage(data,'https://windowworker.github.io');
       
       }
       });

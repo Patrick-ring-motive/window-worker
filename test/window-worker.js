@@ -2,7 +2,14 @@ class WindowWorker {
   constructor(workerURL) {
     this.iframe = this.buildWorker(workerURL);
   }
+  
+  
+   postMessage(message, targetOrigin, transfer){
    
+     return this.iframe.contentWindow.postMessage(message, targetOrigin, transfer);
+   }
+  
+  
   async  buildWorker (wURL){
       let wj = await fetch(wURL);
       let wjs=await wj.text();
@@ -13,7 +20,7 @@ class WindowWorker {
       crf.src = 'https://windowworker.github.io/worker/worker.html?'+encodeURIComponent(window.location.origin)+'?'+encodeURIComponent(crf.getAttribute('readyId'));
       document.body.appendChild(crf); 
       window.addEventListener("message", (event) => {
-        console.log(event);
+       //console.log(event);
           if (event.origin !== "https://windowworker.github.io")
        return;
         let rid = 'ready' + crf.getAttribute('readyId');

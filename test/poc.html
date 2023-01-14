@@ -13,7 +13,7 @@
 
       
       const myWorker = new WindowWorker('ww.js');
-      
+      myWorker.onmessage = function(e){console.log('myWorker',e);};
       
     </script>
     

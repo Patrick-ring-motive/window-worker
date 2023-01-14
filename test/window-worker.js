@@ -4,6 +4,9 @@ class WindowWorker {
     this.iframe = this.buildWorker(workerURL,this.readyId);
   }
   
+   set onmessage(msg) {
+    window.onmessage=function(msg){return msg;};
+  }
   
    postMessage(message, targetOrigin, transfer){
    

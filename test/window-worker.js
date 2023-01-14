@@ -19,7 +19,7 @@ class WindowWorker {
      hm(e,msg);
     
     
-    };
+    });
   }
   
    postMessage(message,transfer){

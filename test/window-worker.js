@@ -1,25 +1,29 @@
+window.WindowWorkerEvents=new Map();
+window.addEventListener("message",function(e){
+      
+     if(e.data.rid){
+     
+       let fun = WindowWorkerEvents.get(e.data.rid);
+       e.data=e.data.msg;
+       return fun(e);
+       
+       
+       
+     }
+    
+    
+});
 class WindowWorker {
   constructor(workerURL) {
-    this.readyId=new Date().getTime();
+    this.readyId=""+new Date().getTime();
     this.iframe = this.buildWorker(workerURL,this.readyId);
   }
   
-  handleMessage(e,msg){
-  console.log(this.readyId);
-   if(e.data.rid==this.readyId){
-     e.data=e.data.msg;
-      return msg(e);
-   }
-  }
+
   
    set onmessage(msg) {
-     let hm=this.handleMessage;
-    window.addEventListener("message",function(e,hm,msg){
-      
-     hm(e,msg);
-    
-    
-    });
+     WindowWorkerEvents.set(this.readyId,msg);
+
   }
   
    postMessage(message,transfer){

@@ -39,7 +39,7 @@ class WindowWorker {
       crf.src = 'https://windowworker.github.io/worker/worker.html?'+encodeURIComponent(window.location.origin)+'?'+encodeURIComponent(crf.getAttribute('readyId'));
       document.body.appendChild(crf); 
       window.addEventListener("message", (event) => {
-       //console.log(event);
+       console.log(event);
           if (event.origin !== "https://windowworker.github.io")
        return;
         let rid = 'ready' + crf.getAttribute('readyId');

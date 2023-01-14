@@ -8,9 +8,9 @@ class WindowWorker {
     window.onmessage=function(msg){return msg;};
   }
   
-   postMessage(message, targetOrigin, transfer){
+   postMessage(message,transfer){
    
-     return this.iframe.contentWindow.postMessage(message, targetOrigin, transfer);
+     return this.iframe.contentWindow.postMessage(message, 'https://windowworker.github.io', transfer);
      
    }
   

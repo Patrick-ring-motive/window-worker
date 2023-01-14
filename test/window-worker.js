@@ -4,8 +4,22 @@ class WindowWorker {
     this.iframe = this.buildWorker(workerURL,this.readyId);
   }
   
+  handleMessage(e,msg){
+  
+   if(e.data.rid==this.readyId){
+     e.data=e.data.msg;
+      return msg(e);
+   }
+  }
+  
    set onmessage(msg) {
-    window.onmessage=function(msg){return msg;};
+     let hm=this.handleMessage;
+    window.addEventListener("message",function(e,hm,msg){
+      
+     hm(e,msg);
+    
+    
+    };
   }
   
    postMessage(message,transfer){

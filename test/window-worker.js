@@ -5,7 +5,7 @@ class WindowWorker {
   }
   
   handleMessage(e,msg){
-  
+  console.log(this.readyId);
    if(e.data.rid==this.readyId){
      e.data=e.data.msg;
       return msg(e);

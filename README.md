@@ -8,6 +8,7 @@ Examples \
 Navigator \
 Unproxy \
 Docs \
+Better random Id \
 
 A tiny and mostly spec-compliant [WebWorker](https://www.w3.org/TR/workers/) polyfill, 
 designed for [browsers that don't support WebWorkers](http://caniuse.com/#feat=webworkers), 

@@ -7,16 +7,16 @@ window.addEventListener("message",function(e){
        e.data=e.data.msg;
        return fun(e);
        
-       
-       
      }
     
     
 });
 class WindowWorker {
   constructor(workerURL) {
-    this.readyId=""+new Date().getTime();
+
+    this.readyId=performance.now()+""+Math.random();
     this.iframe = this.buildWorker(workerURL,this.readyId);
+
   }
   
 

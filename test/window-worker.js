@@ -22,9 +22,26 @@ class WindowWorker {
 
   
    set onmessage(msg) {
-     WindowWorkerEvents.set(this.readyId,msg);
+
+    return WindowWorkerEvents.set(this.readyId,msg);
 
   }
+
+   addEventListener(msgevent,msg){
+
+   if(msgevent=="message"){
+
+return WindowWorkerEvents.set(this.readyId,msg);
+
+   }else{
+
+   return super.addEventListener(msgevent,msg);
+
+   }
+
+
+    }
+
   
    postMessage(message,transfer){
    

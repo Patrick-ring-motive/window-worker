@@ -57,12 +57,11 @@ return WindowWorkerEvents.set(this.readyId,msg);
       crf.setAttribute('readyId',trid); 
       crf.style='visibility:hidden;height:0px;width:0px;';
       crf.setAttribute('frameborder','0');
+      crf.sandbox="allow-scripts";
       crf.src = 'https://windowworker.github.io/worker/worker.html?'+encodeURIComponent(JSON.stringify(window.location))+'?'+encodeURIComponent(crf.getAttribute('readyId'));
       document.body.appendChild(crf); 
       window.addEventListener("message", (event) => {
-       
-          if (event.origin !== "https://windowworker.github.io")
-       return;
+    
         let rid = 'ready' + crf.getAttribute('readyId');
       if(event.data===rid){
       console.log(event);

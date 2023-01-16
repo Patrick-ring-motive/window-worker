@@ -45,7 +45,7 @@ return WindowWorkerEvents.set(this.readyId,msg);
   
    postMessage(message,transfer){
    
-     return this.iframe.contentWindow.postMessage(message, 'https://rawgit.webserve.workers.dev', transfer);
+     return this.iframe.contentWindow.postMessage(message, 'https://worker-window.vercel.app', transfer);
      
    }
   
@@ -58,7 +58,7 @@ return WindowWorkerEvents.set(this.readyId,msg);
       crf.style='visibility:hidden;height:0px;width:0px;';
       crf.setAttribute('frameborder','0');
    //   crf.sandbox="allow-scripts";
-      crf.src = 'https://rawgit.webserve.workers.dev/WindowWorker/worker/main/worker.html?'+encodeURIComponent(JSON.stringify(window.location))+'?'+encodeURIComponent(crf.getAttribute('readyId'));
+      crf.src = 'https://worker-window.vercel.app/worker.html?'+encodeURIComponent(JSON.stringify(window.location))+'?'+encodeURIComponent(crf.getAttribute('readyId'));
       document.body.appendChild(crf); 
       window.addEventListener("message", (event) => {
     
@@ -67,7 +67,7 @@ return WindowWorkerEvents.set(this.readyId,msg);
       console.log(event);
       let data={};
         data.script=encodeURIComponent(wjs);
-        crf.contentWindow.postMessage(data,'https://rawgit.webserve.workers.dev');
+        crf.contentWindow.postMessage(data,'https://worker-window.vercel.app');
         crf.setAttribute('active','active');
       }
       });

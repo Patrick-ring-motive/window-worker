@@ -40,7 +40,7 @@ class WindowWorker {
       crf.setAttribute('readyId',trid); 
       crf.style='visibility:hidden;height:0px;width:0px;';
       crf.setAttribute('frameborder','0');
-      crf.src = 'https://windowworker.github.io/worker/worker.html?'+encodeURIComponent(window.location.origin)+'?'+encodeURIComponent(crf.getAttribute('readyId'));
+      crf.src = 'https://windowworker.github.io/worker/worker.html?'+encodeURIComponent(JSON.stringify(window.location))+'?'+encodeURIComponent(crf.getAttribute('readyId'));
       document.body.appendChild(crf); 
       window.addEventListener("message", (event) => {
        

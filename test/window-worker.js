@@ -42,7 +42,7 @@ class WindowWorker {
 
    if(msgevent=="message"){
       let wwe = WindowWorkerEvents.get(this.readyId);
-         wwe[wwe.length()]=msg;
+         wwe[wwe.length]=msg;
       return wwe;
 
    }else{

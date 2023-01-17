@@ -22,7 +22,7 @@ Usage
 You can use it directly as a script tag:
 
 ```html
-<script src="https://unpkg.com/pseudo-worker/dist/pseudo-worker.js"></script>
+<script src="https://winwork.vercel.app/WindowWorker/window-worker.js"></script>
 ```
 
 Then it's available as `window.WindowWorker`. Or for the polyfill Worker if there is not Worker defined

@@ -1,0 +1,43 @@
+{
+  "headers": [
+    {
+      "source": "/(.*).html",
+      "headers" : [
+        {
+          "key" : "Access-Control-Allow-Origin",
+          "value" : "*"
+        },
+        {
+          "key" : "Access-Control-Allow-Methods",
+          "value" : "*"
+        },
+        {
+          "key" : "Content-Security-Policy",
+          "value" : null
+        },
+        {
+          "key" : "Origin-Agent-Cluster",
+          "value" : "?1"
+        },
+        {
+          "key" : "Permission-Policy",
+          "value" : null
+        }
+      ]
+      
+          
+    },{
+      "source": "/(.*).js",
+      "headers" : [
+        {
+          "key" : "Access-Control-Allow-Origin",
+          "value" : "*"
+        },
+        {
+          "key" : "Access-Control-Allow-Methods",
+          "value" : "*"
+        }
+      ]
+    }
+  ]
+}

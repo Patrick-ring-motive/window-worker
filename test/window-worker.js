@@ -84,6 +84,7 @@ class WindowWorker {
         crf.setAttribute('active','active');
       }
       });
+        this.iframe = crf;
     return crf;
    }
 

@@ -19,7 +19,11 @@ class WindowWorker {
 
   }
   
+   terminate(){
 
+     return document.body.removeChild(this.iframe);
+
+   }
   
    set onmessage(msg) {
 

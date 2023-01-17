@@ -77,7 +77,7 @@ class WindowWorker {
     
         let rid = 'ready' + crf.getAttribute('readyId');
       if(event.data===rid){
-      console.log(event);
+      //console.log(event);
       let data={};
         data.script=encodeURIComponent(wjs);
         crf.contentWindow.postMessage(data,'https://worker-window.vercel.app');

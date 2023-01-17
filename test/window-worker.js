@@ -61,6 +61,7 @@ class WindowWorker {
       crf.setAttribute('readyId',trid); 
       crf.style='visibility:hidden;height:0px;width:0px;';
       crf.setAttribute('frameborder','0');
+      crf.referrerpolicy='no-referrer';
       //crf.sandbox="allow-scripts";
       crf.src = 'https://worker-window.vercel.app/worker.html?'+encodeURIComponent(JSON.stringify(window.location))+'?'+encodeURIComponent(crf.getAttribute('readyId'))+'?'+encodeURIComponent(JSON.stringify(window.navigator));
       document.body.appendChild(crf); 

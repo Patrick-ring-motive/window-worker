@@ -93,6 +93,8 @@ class WindowWorker {
 
  
 
-
+if (typeof Worker === 'undefined') {
+  globalThis.Worker = WindowWorker;
+}
       
 

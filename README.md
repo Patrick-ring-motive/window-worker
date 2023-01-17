@@ -25,14 +25,9 @@ You can use it directly as a script tag:
 <script src="https://unpkg.com/pseudo-worker/dist/pseudo-worker.js"></script>
 ```
 
-Then it's available as `window.PseudoWorker`. Or for the polyfill:
+Then it's available as `window.WindowWorker`. Or for the polyfill Worker if there is not Worker defined
 
-```html
-<script src="https://unpkg.com/pseudo-worker/dist/pseudo-worker.polyfill.js"></script>
-```
 
-Supported APIS
-----
 
 
 

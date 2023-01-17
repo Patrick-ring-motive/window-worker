@@ -2,10 +2,13 @@ window.WindowWorkerEvents=new Map();
 window.addEventListener("message",function(e){
       
      if(e.data.rid){
-     
-       let fun = WindowWorkerEvents.get(e.data.rid);
-       e.data=e.data.msg;
-       return fun(e);
+      e.data=e.data.msg;
+       let funs = WindowWorkerEvents.get(e.data.rid);
+           const funs_length=funs.length;
+           for(let i=0;i<funs_length;i++){try{
+                  funs[i](e);
+           }catch(e){continue;}}
+       return;
        
      }
     
@@ -13,29 +16,34 @@ window.addEventListener("message",function(e){
 });
 class WindowWorker {
   constructor(workerURL) {
-
+      
+     
     this.readyId=performance.now()+""+Math.random();
+        this.windowWorkerEvents=[];
+        WindowWorkerEvents.set(this.readyId,this.windowWorkerEvents);
     this.iframe = this.buildWorker(workerURL,this.readyId);
 
   }
   
    terminate(){
-
+      WindowWorkerEvents.delete(this.readyId);
      return document.body.removeChild(this.iframe);
 
    }
   
    set onmessage(msg) {
-
-    return WindowWorkerEvents.set(this.readyId,msg);
+      let wwe = WindowWorkerEvents.get(this.readyId);
+         wwe[wwe.length()]=msg;
+    return wwe;
 
   }
 
    addEventListener(msgevent,msg){
 
    if(msgevent=="message"){
-
-      return WindowWorkerEvents.set(this.readyId,msg);
+      let wwe = WindowWorkerEvents.get(this.readyId);
+         wwe[wwe.length()]=msg;
+      return wwe;
 
    }else{
 

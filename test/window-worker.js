@@ -35,7 +35,7 @@ class WindowWorker {
 
    if(msgevent=="message"){
 
-return WindowWorkerEvents.set(this.readyId,msg);
+      return WindowWorkerEvents.set(this.readyId,msg);
 
    }else{
 

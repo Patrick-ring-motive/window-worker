@@ -76,6 +76,7 @@ this.iframe = this.buildWorker(workerURL, this.readyId,this.resolve);
     let wjs = await wj.text();
     let crf = document.createElement('iframe');
     crf.setAttribute('readyId', trid);
+    crf.res = res;
     crf.style = 'visibility:hidden;height:0px;width:0px;';
     crf.setAttribute('frameborder', '0');
     crf.referrerpolicy = 'no-referrer';
@@ -86,7 +87,7 @@ this.iframe = this.buildWorker(workerURL, this.readyId,this.resolve);
 
       let lid = 'loaded' + crf.getAttribute('readyId');
       if (event.data === lid) {
-        res();
+        crf.res();
       }
   });      window.addEventListener("message", (event) => {
 

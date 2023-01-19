@@ -3,7 +3,7 @@ window.addEventListener("message", function(e) {
 
   if (e.data.rid) {
     e.data = e.data.msg;
-    let funs = WindowWorkerEvents.get(e.data.rid);
+    let funs = window.WindowWorkerEvents.get(e.data.rid);
     const funs_length = funs.length;
     for (let i = 0; i < funs_length; i++) {
       try {
@@ -23,12 +23,19 @@ class WindowWorker {
     this.readyId = performance.now() + "" + Math.random();
     this.windowWorkerEvents = [];
     WindowWorkerEvents.set(this.readyId, this.windowWorkerEvents);
-    this.iframe = this.buildWorker(workerURL, this.readyId);
+    
+this.loaded = new Promise((resolve, reject) => {
+  this.resolve = resolve;
+});
 
+this.iframe = this.buildWorker(workerURL, this.readyId,this.resolve);
+    
+    return this.loaded;
+    
   }
 
   terminate() {
-    WindowWorkerEvents.delete(this.readyId);
+    window.WindowWorkerEvents.delete(this.readyId);
     return document.body.removeChild(this.iframe);
 
   }
@@ -64,7 +71,7 @@ class WindowWorker {
   }
 
 
-  async buildWorker(wURL, trid) {
+  async buildWorker(wURL, trid, res) {
     let wj = await fetch(wURL);
     let wjs = await wj.text();
     let crf = document.createElement('iframe');
@@ -75,7 +82,13 @@ class WindowWorker {
     //crf.sandbox="allow-scripts allow-top-navigation";
     crf.src = 'https://worker-window.vercel.app/worker.html?' + encodeURIComponent(JSON.stringify(window.location)) + '?' + encodeURIComponent(crf.getAttribute('readyId')) + '?' + encodeURIComponent(JSON.stringify(window.navigator));
     document.body.appendChild(crf);
-    window.addEventListener("message", (event) => {
+  window.addEventListener("message", (event) => {
+
+      let lid = 'loaded' + crf.getAttribute('readyId');
+      if (event.data === lid) {
+        res();
+      }
+  });      window.addEventListener("message", (event) => {
 
       let rid = 'ready' + crf.getAttribute('readyId');
       if (event.data === rid) {

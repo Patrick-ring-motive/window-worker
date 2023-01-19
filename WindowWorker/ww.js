@@ -1,3 +1,3 @@
 console.log('worker started');
-postMessage('hello there');
-postMessage('cheese');
+self.postMessage('hello there');
+self.postMessage('cheese');

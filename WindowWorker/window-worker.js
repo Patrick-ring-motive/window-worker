@@ -44,6 +44,7 @@ this.iframe = this.buildWorker(workerURL, this.readyId,this.resolve);
   set onmessage(msg) {
     let wwe = WindowWorkerEvents.get(this.readyId);
     wwe[wwe.length] = msg;
+    WindowWorkerEvents.set(this.readyId,wwe);
     return wwe;
 
   }
@@ -53,6 +54,7 @@ this.iframe = this.buildWorker(workerURL, this.readyId,this.resolve);
     if (msgevent == "message") {
       let wwe = WindowWorkerEvents.get(this.readyId);
       wwe[wwe.length] = msg;
+      WindowWorkerEvents.set(this.readyId,wwe);
       return wwe;
 
     } else {

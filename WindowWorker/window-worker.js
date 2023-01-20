@@ -1,6 +1,6 @@
 window.WindowWorkerEvents = new Map();
 window.addEventListener("message", function(e) {
-
+console.log(e);
   if (e.data.rid) {
     let edr = e.data.rid;
     e.data = e.data.msg;

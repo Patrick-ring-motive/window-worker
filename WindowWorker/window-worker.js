@@ -1,3 +1,4 @@
+if(!window.WindowWorkerURL){window.WindowWorkerURL='https://worker-window.vercel.app';}
 window.WindowWorkerEvents = new Map();
 window.addEventListener("message", function(e) {
 console.log(e);
@@ -69,7 +70,7 @@ this.iframe = this.buildWorker(workerURL, this.readyId,this.resolve);
 
   postMessage(message, transfer) {
 
-    return this.iframe.contentWindow.postMessage(message, 'https://worker-window.vercel.app', transfer);
+    return this.iframe.contentWindow.postMessage(message, window.WindowWorkerURL, transfer);
 
   }
 
@@ -84,7 +85,7 @@ this.iframe = this.buildWorker(workerURL, this.readyId,this.resolve);
     crf.setAttribute('frameborder', '0');
     crf.referrerpolicy = 'no-referrer';
     //crf.sandbox="allow-scripts allow-top-navigation";
-    crf.src = 'https://worker-window.vercel.app/worker.html?' + encodeURIComponent(JSON.stringify(window.location)) + '?' + encodeURIComponent(crf.getAttribute('readyId')) + '?' + encodeURIComponent(JSON.stringify(window.navigator));
+    crf.src = window.WindowWorkerURL+'/worker.html?' + encodeURIComponent(JSON.stringify(window.location)) + '?' + encodeURIComponent(crf.getAttribute('readyId')) + '?' + encodeURIComponent(JSON.stringify(window.navigator));
     document.body.appendChild(crf);
   window.addEventListener("message", (event) => {
 
@@ -99,7 +100,7 @@ this.iframe = this.buildWorker(workerURL, this.readyId,this.resolve);
         //console.log(event);
         let data = {};
         data.script = encodeURIComponent(wjs);
-        crf.contentWindow.postMessage(data, 'https://worker-window.vercel.app');
+        crf.contentWindow.postMessage(data, window.WindowWorkerURL);
         crf.setAttribute('active', 'active');
       }
     });

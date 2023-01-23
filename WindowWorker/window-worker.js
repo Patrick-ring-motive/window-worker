@@ -1,7 +1,6 @@
 if(!window.WindowWorkerURL){window.WindowWorkerURL='https://worker-window.vercel.app';}
 window.WindowWorkerEvents = new Map();
 window.addEventListener("message", function(e) {
-console.log(e);
   if (e.data.rid) {
     let edr = e.data.rid;
     e.data = e.data.msg;
@@ -97,7 +96,6 @@ this.iframe = this.buildWorker(workerURL, this.readyId,this.resolve);
 
       let rid = 'ready' + crf.getAttribute('readyId');
       if (event.data === rid) {
-        //console.log(event);
         let data = {};
         data.script = encodeURIComponent(wjs);
         crf.contentWindow.postMessage(data, window.WindowWorkerURL);

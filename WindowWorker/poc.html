@@ -11,9 +11,19 @@
     <script>
       
 
-      
-      const myWorker = new WindowWorker('ww.js');
+      void async function main(){
+        
+      const myWorker = new WindowWorker('wwtest.js');
       myWorker.onmessage = function(e){console.log('myWorker',e);};
+      console.log(myWorker.loaded);
+        
+      await myWorker.loaded;
+        
+      console.log(myWorker.loaded);
+        
+      }();
+      
+      
       
     </script>
     

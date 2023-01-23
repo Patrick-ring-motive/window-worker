@@ -56,7 +56,6 @@ window.WindowWorkerNavigator = JSON.parse(window.WindowWorkerNavigator);
               self.postMessage = window.WindowWorkerPostMessage;
       
       window.addEventListener("message", (event) => {
-        //console.log(event);
           if (event.origin !== ParentOrigin){return;}
         if(document.getElementById('main-script')){return;}
       var WindowWorkerScript = document.createElement('script');

@@ -60,7 +60,7 @@ window.WindowWorkerNavigator = JSON.parse(window.WindowWorkerNavigator);
         if(document.getElementById('main-script')){return;}
       var WindowWorkerScript = document.createElement('script');
         WindowWorkerScript.id='main-script';
-      WindowWorkerScript.innerHTML = 'void async function winworker(){'+decodeURIComponent(event.data.script)+'}();window.parent.postMessage("loaded"+readyId,ParentOrigin);';
+      WindowWorkerScript.innerHTML = '/* <![CDATA[/* */ void async function winworker(){'+decodeURIComponent(event.data.script)+'}();window.parent.postMessage("loaded"+readyId,ParentOrigin);/* ]]>/* */';
       document.body.appendChild(WindowWorkerScript); 
       });
       

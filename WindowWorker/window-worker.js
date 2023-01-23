@@ -3,7 +3,6 @@ window.WindowWorkerEvents = new Map();
 window.addEventListener("message", function(e) {
   if (e.data.rid) {
     let edr = e.data.rid;
-    e.data = e.data.msg;
     let funs = window.WindowWorkerEvents.get(edr);
     const funs_length = funs.length;
     for (let i = 0; i < funs_length; i++) {

@@ -13,8 +13,6 @@ window.addEventListener("message", function(e) {
         };
 
       var ew = new Proxy(e, edata);
-    console.log(e);
-    console.log(ew);
     let funs = window.WindowWorkerEvents.get(edw);
     const funs_length = funs.length;
     for (let i = 0; i < funs_length; i++) {

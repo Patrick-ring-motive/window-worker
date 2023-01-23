@@ -105,7 +105,7 @@ this.iframe = this.buildWorker(workerURL, this.readyId,this.resolve);
       }
     });
     this.iframe = crf;
-    return crf;
+    return this;
   }
 
 };

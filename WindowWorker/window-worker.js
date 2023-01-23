@@ -3,7 +3,9 @@ window.WindowWorkerEvents = new Map();
 window.addEventListener("message", function(e) {
   if (e.data.WindowWorkerId) {
     edw = e.data.WindowWorkerId;
+    console.log(e);
     e.data = e.data.WindowWorkerData;
+    console.log(e);
     let funs = window.WindowWorkerEvents.get(edw);
     const funs_length = funs.length;
     for (let i = 0; i < funs_length; i++) {

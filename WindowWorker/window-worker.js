@@ -6,7 +6,7 @@ window.addEventListener("message", function(e) {
           const edata = {
          get(ev, prop, receiver) {
                   if (prop === "data") {
-                    return ev.data.WindowWorkerData;
+                    return e.data.WindowWorkerData;
                   }
                  return Reflect.get(...arguments);
          }

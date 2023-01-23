@@ -2,11 +2,19 @@ if(!window.WindowWorkerURL){window.WindowWorkerURL='https://worker-window.vercel
 window.WindowWorkerEvents = new Map();
 window.addEventListener("message", function(e) {
   if (e.data.WindowWorkerId) {
-    window.etest = e;
     edw = e.data.WindowWorkerId;
+          const edata = {
+         get(ev, prop, receiver) {
+                  if (prop === "data") {
+                    return ev.data.WindowWorkerData;
+                  }
+                 return Reflect.get(...arguments);
+         }
+        };
+
+      var ew = new Proxy(e, edata);
     console.log(e);
-    e.data = e.data.WindowWorkerData;
-    console.log(e);
+    console.log(ew);
     let funs = window.WindowWorkerEvents.get(edw);
     const funs_length = funs.length;
     for (let i = 0; i < funs_length; i++) {

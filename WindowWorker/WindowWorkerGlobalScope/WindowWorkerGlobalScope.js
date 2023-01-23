@@ -21,26 +21,34 @@ window.WindowWorkerNavigator = JSON.parse(window.WindowWorkerNavigator);
      }
       const loc = {
          get(window, prop, receiver) {
-            if (prop === "location") {
-              return window.WindowWorkerLocation;
-            }
+                  if (prop === "location") {
+                    return window.WindowWorkerLocation;
+                  }
 
-            if (prop === "origin") {
-              return window.WindowWorkerLocation.origin;
-            }
+                  if (prop === "origin") {
+                    return window.WindowWorkerLocation.origin;
+                  }
 
-            if (prop === "fonts") {
-              return document.fonts;
-            }
+                  if (prop === "fonts") {
+                    return document.fonts;
+                  }
 
 
-            if (prop === "navigator") {
-              return window.WindowWorkerNavigator;
-            }
-           
+                  if (prop === "navigator") {
+                    return window.WindowWorkerNavigator;
+                  }
 
-           return Reflect.get(...arguments);
-         },
+
+                 return Reflect.get(...arguments);
+         },   set(window, prop, value) {
+                  if (prop === "onmessage") {
+                    window.onmessage = value;
+                        return window.onmessage;
+                  }
+
+
+                 return Reflect.set(...arguments);
+         }
         };
 
       var self = new Proxy(window, loc);

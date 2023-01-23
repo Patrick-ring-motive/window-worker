@@ -1,8 +1,8 @@
-window-worker [![Build Status](https://travis-ci.com/nolanlawson/pseudo-worker.svg?branch=master)](https://travis-ci.com/nolanlawson/pseudo-worker) [![Coverage Status](https://coveralls.io/repos/nolanlawson/pseudo-worker/badge.svg?branch=master&service=github)](https://coveralls.io/github/nolanlawson/pseudo-worker?branch=master)
- \
-Todo: \
-Examples \
-Docs 
+window-worker 
+
+
+You can view the basic example at [https://winwork.vercel.app/examples/index.html](https://winwork.vercel.app/examples/index.html) borrowed from them same mdn example for a basic worker [https://github.com/mdn/dom-examples/tree/main/web-workers/simple-web-worker](https://github.com/mdn/dom-examples/tree/main/web-workers/simple-web-worker).
+
 
 A tiny and mostly spec-compliant [WebWorker](https://www.w3.org/TR/workers/) polyfill, 
 designed for [browsers that don't support WebWorkers](http://caniuse.com/#feat=webworkers), 
@@ -56,8 +56,4 @@ For the sake of completeness I felt it necessary to add those values to the wind
 `self.postMessage = window.WindowWorkerPostMessage`
 
 The self proxy has to explicitly return window.onmessage instead of self.onmessage because apparently the latter causes an invocation error.
-
-
-You can view the basic example at [https://winwork.vercel.app/examples/index.html](https://winwork.vercel.app/examples/index.html) borrowed from them same mdn example for a basic worker [https://github.com/mdn/dom-examples/tree/main/web-workers/simple-web-worker](https://github.com/mdn/dom-examples/tree/main/web-workers/simple-web-worker).
-
 

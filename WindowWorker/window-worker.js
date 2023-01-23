@@ -2,6 +2,7 @@ if(!window.WindowWorkerURL){window.WindowWorkerURL='https://worker-window.vercel
 window.WindowWorkerEvents = new Map();
 window.addEventListener("message", function(e) {
   if (e.data.WindowWorkerId) {
+    window.etest = e;
     edw = e.data.WindowWorkerId;
     console.log(e);
     e.data = e.data.WindowWorkerData;

@@ -5,8 +5,8 @@ window.addEventListener("message", function(e) {
     edw = e.data.WindowWorkerId;
           const edata = {
          get(ev, prop, receiver) {
-                  if (prop === "data") {
-                    return e.data.WindowWorkerData;
+                  if (prop == "data") {
+                    return ev.data.WindowWorkerData;
                   }
                  return Reflect.get(...arguments);
          }
@@ -19,7 +19,7 @@ window.addEventListener("message", function(e) {
     const funs_length = funs.length;
     for (let i = 0; i < funs_length; i++) {
       try {
-        funs[i](e);
+        funs[i](ew);
       } catch (e) { continue; }
     }
     return;

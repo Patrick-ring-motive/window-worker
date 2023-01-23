@@ -13,8 +13,8 @@ window.WindowWorkerNavigator = JSON.parse(window.WindowWorkerNavigator);
       
       
      window.WindowWorkerPostMessage = function(message, transfer){
-      let data={};
-       data.msg=message;
+      let data=message;
+      
        data.rid=readyId;
      return window.parent.postMessage(data, ParentOrigin, transfer);
         

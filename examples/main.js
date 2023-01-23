@@ -3,8 +3,8 @@ const second = document.querySelector('#number2');
 
 const result = document.querySelector('.result');
 
-if (window.Worker) {
-  const myWorker = new Worker("worker.js");
+if (window.WindowWorker) {
+  const myWorker = new WindowWorker("worker.js");
 
   first.onchange = function() {
     myWorker.postMessage([first.value, second.value]);
@@ -21,6 +21,6 @@ if (window.Worker) {
     console.log('Message received from worker');
   }
 } else {
-  console.log('Your browser doesn\'t support web workers.');
+  console.log('Your browser doesn\'t support window workers.');
 }
 

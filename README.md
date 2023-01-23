@@ -43,15 +43,21 @@ Not this:
 location
 ```
 
-Specifically the values for `self.location`,`self.navigator`,`self.onmessage`, and `self.postMessage` had to be replaced via proxy as they are not mutable on the `window` without major side effects.\
+Specifically the values for `self.location`,`self.origin`,`self.navigator`,`self.onmessage`, and `self.postMessage` had to be replaced via proxy as they are not mutable on the `window` without major side effects.\
 For the sake of completeness I felt it necessary to add those values to the window object using Unicode monospaced characters and camel case with the 'WindowWorker' prefix as shown here:
 
 
 `self.location = window.WindowWorkerLocation = window.𝚕𝚘𝚌𝚊𝚝𝚒𝚘𝚗`
 
-`self.navigator = window.WindowWorkerLocation = window.𝚕𝚘𝚌𝚊𝚝𝚒𝚘𝚗`
+`self.origin = window.WindowWorkerLocation.origin = window.𝚘𝚛𝚒𝚐𝚒𝚗`
+
+`self.navigator = window.WindowWorkerNavigator = window.𝚗𝚊𝚟𝚒𝚐𝚊𝚝𝚘𝚛`
+
+`self.postMessage = window.WindowWorkerPostMessage`
+
+The self proxy has to explicitly return window.onmessage instead of self.onmessage because apparently the latter causes an invocation error.
 
 
-You can view the basic example at [https://winwork.vercel.app/examples/index.html](https://winwork.vercel.app/examples/index.html)
+You can view the basic example at [https://winwork.vercel.app/examples/index.html](https://winwork.vercel.app/examples/index.html) borrowed from them same mdn example for a basic worker [https://github.com/mdn/dom-examples/tree/main/web-workers/simple-web-worker](https://github.com/mdn/dom-examples/tree/main/web-workers/simple-web-worker).
 
 

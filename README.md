@@ -2,7 +2,7 @@ window-worker [![Build Status](https://travis-ci.com/nolanlawson/pseudo-worker.s
  \
 Todo: \
 Examples \
-Docs \
+Docs 
 
 A tiny and mostly spec-compliant [WebWorker](https://www.w3.org/TR/workers/) polyfill, 
 designed for [browsers that don't support WebWorkers](http://caniuse.com/#feat=webworkers), 
@@ -24,7 +24,7 @@ You can use it directly as a script tag:
 <script src="https://winwork.vercel.app/WindowWorker/window-worker.js"></script>
 ```
 
-Then it's available as `window.WindowWorker`. Or for the polyfill Worker if there is not Worker defined
+Then it's available as `window.WindowWorker`. Or as a polyfill Worker if there is not Worker defined
 
 
 
@@ -42,4 +42,10 @@ Not this:
 ```js
 location
 ```
+
+Specifically the values for `self.location`,`self.navigator`,`self.onmessage`, and `self.postMessage` had to be replaced via proxy as they are not mutable on the `window` without major side effects.\
+For the sake of completeness I felt it necessary to add those values to the window object using Unicode monospaced characters.
+
+You can view the basic example at [https://winwork.vercel.app/WindowWorker/](https://winwork.vercel.app/WindowWorker/)
+
 

@@ -47,9 +47,9 @@ Specifically the values for `self.location`,`self.navigator`,`self.onmessage`, a
 For the sake of completeness I felt it necessary to add those values to the window object using Unicode monospaced characters and camel case with the 'WindowWorker' prefix as shown here:
 
 
-self.location = window.WindowWorkerLocation = window.𝚕𝚘𝚌𝚊𝚝𝚒𝚘𝚗
+`self.location = window.WindowWorkerLocation = window.𝚕𝚘𝚌𝚊𝚝𝚒𝚘𝚗`
 
-
+`self.navigator = window.WindowWorkerLocation = window.𝚕𝚘𝚌𝚊𝚝𝚒𝚘𝚗`
 
 
 You can view the basic example at [https://winwork.vercel.app/WindowWorker/](https://winwork.vercel.app/WindowWorker/)

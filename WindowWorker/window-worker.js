@@ -17,7 +17,7 @@ window.addEventListener("message", function(e) {
 
 
 });
-class WindowWorker {
+window.WindowWorker = class WindowWorker {
   constructor(workerURL) {
 
 

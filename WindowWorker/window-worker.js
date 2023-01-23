@@ -1,7 +1,7 @@
 if(!window.WindowWorkerURL){window.WindowWorkerURL='https://worker-window.vercel.app';}
 window.WindowWorkerEvents = new Map();
 window.addEventListener("message", function(e) {
-  if (e.data.rid) {
+  if (e.data.WindowWorkerId) {
     let edw = e.data.WindowWorkerId;
     delete e.data.WindowWorkerId;
     let funs = window.WindowWorkerEvents.get(edw);

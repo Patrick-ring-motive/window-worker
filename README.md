@@ -52,6 +52,6 @@ For the sake of completeness I felt it necessary to add those values to the wind
 `self.navigator = window.WindowWorkerLocation = window.𝚕𝚘𝚌𝚊𝚝𝚒𝚘𝚗`
 
 
-You can view the basic example at [https://winwork.vercel.app/WindowWorker/examples/index.html](https://winwork.vercel.app/WindowWorker/examples/index.html)
+You can view the basic example at [https://winwork.vercel.app/examples/index.html](https://winwork.vercel.app/examples/index.html)
 
 

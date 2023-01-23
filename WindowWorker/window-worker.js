@@ -2,7 +2,7 @@ if(!window.WindowWorkerURL){window.WindowWorkerURL='https://worker-window.vercel
 window.WindowWorkerEvents = new Map();
 window.addEventListener("message", function(e) {
   if (e.data.rid) {
-    let edr = e.data.rid;
+    let edr = e.data.WindowWorkerId;
     let funs = window.WindowWorkerEvents.get(edr);
     const funs_length = funs.length;
     for (let i = 0; i < funs_length; i++) {

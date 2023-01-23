@@ -91,7 +91,7 @@ this.iframe = this.buildWorker(workerURL, this.readyId,this.resolve);
 
       let lid = 'loaded' + crf.getAttribute('readyId');
       if (event.data === lid) {
-        crf.res();
+       this.loaded = crf.res();
       }
   });      window.addEventListener("message", (event) => {
 

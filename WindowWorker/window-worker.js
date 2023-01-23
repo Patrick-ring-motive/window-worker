@@ -32,7 +32,7 @@ this.loaded = new Promise((resolve, reject) => {
 
 this.iframe = this.buildWorker(workerURL, this.readyId,this.resolve);
     
-    return this.loaded;
+    return this;
     
   }
 
@@ -105,7 +105,7 @@ this.iframe = this.buildWorker(workerURL, this.readyId,this.resolve);
       }
     });
     this.iframe = crf;
-    return this;
+    return this.iframe;
   }
 
 };

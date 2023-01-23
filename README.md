@@ -1,4 +1,4 @@
-window-worker 
+# window-worker 
 
 
 You can view the basic example at [https://winwork.vercel.app/examples/index.html](https://winwork.vercel.app/examples/index.html) borrowed from them same mdn example for a basic worker [https://github.com/mdn/dom-examples/tree/main/web-workers/simple-web-worker](https://github.com/mdn/dom-examples/tree/main/web-workers/simple-web-worker).

@@ -23,4 +23,3 @@ if (window.WindowWorker) {
 } else {
   console.log('Your browser doesn\'t support window workers.');
 }
-

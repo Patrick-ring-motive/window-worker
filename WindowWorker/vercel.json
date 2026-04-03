@@ -2,40 +2,39 @@
   "headers": [
     {
       "source": "/(.*).html",
-      "headers" : [
+      "headers": [
         {
-          "key" : "Access-Control-Allow-Origin",
-          "value" : "*"
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
         },
         {
-          "key" : "Access-Control-Allow-Methods",
-          "value" : "*"
+          "key": "Access-Control-Allow-Methods",
+          "value": "*"
         },
         {
-          "key" : "Content-Security-Policy",
-          "value" : null
+          "key": "Content-Security-Policy",
+          "value": null
         },
         {
-          "key" : "Origin-Agent-Cluster",
-          "value" : "?1"
+          "key": "Origin-Agent-Cluster",
+          "value": "?1"
         },
         {
-          "key" : "Permission-Policy",
-          "value" : null
+          "key": "Permission-Policy",
+          "value": null
         }
       ]
-      
-          
-    },{
+    },
+    {
       "source": "/(.*).js",
-      "headers" : [
+      "headers": [
         {
-          "key" : "Access-Control-Allow-Origin",
-          "value" : "*"
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
         },
         {
-          "key" : "Access-Control-Allow-Methods",
-          "value" : "*"
+          "key": "Access-Control-Allow-Methods",
+          "value": "*"
         }
       ]
     }

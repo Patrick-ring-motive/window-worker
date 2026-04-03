@@ -1,32 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>single thread test</title>
-  </head>
-  <body>
 
-    <script src="./window-worker.js" ></script>
-    <script>
-      
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>single thread test</title>
+</head>
 
-      void async function main(){
-        
+<body>
+
+  <script src="./window-worker.js"></script>
+  <script>
+    void async function main() {
+
       const myWorker = new WindowWorker('wwtest.js');
-      myWorker.onmessage = function(e){console.log('myWorker',e);};
+      myWorker.onmessage = function(e) {
+        console.log('myWorker', e);
+      };
       console.log(myWorker.loaded);
-        
-      await myWorker.loaded;
-        
-      console.log(myWorker.loaded);
-        
-      }();
-      
-      
-      
-    </script>
-    
 
-  </body>
+      await myWorker.loaded;
+
+      console.log(myWorker.loaded);
+
+    }();
+
+  </script>
+
+
+</body>
+
 </html>
